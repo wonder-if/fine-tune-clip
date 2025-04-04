@@ -1,0 +1,61 @@
+2025-03-25 20:48:40 [INFO] [logger.py] [info] [line 49] Starting main program
+2025-03-25 20:48:40 [INFO] [logger.py] [info] [line 49] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Starting main program
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] DataManager initialized
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-03-25 20:50:29 [DEBUG] [logger.py] [debug] [line 46] Processing dataset: office-31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Adding dataset: office-31, Domain: amazon
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset added successfully: office-31, Domain: amazon
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Adding dataset: office-31, Domain: dslr
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset added successfully: office-31, Domain: dslr
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Adding dataset: office-31, Domain: webcam
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset added successfully: office-31, Domain: webcam
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Datasets information loaded successfully
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Listing all datasets
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: amazon, Directory: /mnt/nas-data/work-data/datasets/images/office-31/amazon/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: dslr, Directory: /mnt/nas-data/work-data/datasets/images/office-31/dslr/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: webcam, Directory: /mnt/nas-data/work-data/datasets/images/office-31/webcam/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Listing all datasets
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: amazon, Directory: /mnt/nas-data/work-data/datasets/images/office-31/amazon/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: dslr, Directory: /mnt/nas-data/work-data/datasets/images/office-31/dslr/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset: office-31, Domain: webcam, Directory: /mnt/nas-data/work-data/datasets/images/office-31/webcam/images/, Classes: 31
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Getting dataset: office-31, Domain: webcam
+2025-03-25 20:50:29 [INFO] [logger.py] [info] [line 49] Dataset found: office-31, Domain: webcam
+2025-03-25 20:50:30 [INFO] [logger.py] [info] [line 49] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 795
+    })
+})
+2025-03-25 20:50:30 [INFO] [logger.py] [info] [line 49] Main program completed

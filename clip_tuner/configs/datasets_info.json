@@ -1,0 +1,30 @@
+{
+    "root": "/mnt/nas-data/work-data/datasets/images/",
+    "datasets": [
+        {
+            "name": "office-31",
+            "dir": "office-31/",
+            "num_classes": 31,
+            "domains": [
+                {
+                    "domain_name": "amazon",
+                    "domain_id": 0,
+                    "domain_abbr": "A",
+                    "domain_dir": "amazon/images/"
+                },
+                {
+                    "domain_name": "dslr",
+                    "domain_id": 1,
+                    "domain_abbr": "D",
+                    "domain_dir": "dslr/images/"
+                },
+                {
+                    "domain_name": "webcam",
+                    "domain_id": 2,
+                    "domain_abbr": "W",
+                    "domain_dir": "webcam/images/"
+                }
+            ]
+        }
+    ]
+}
