@@ -161,7 +161,7 @@ text 的 流程如下：
             embeddings = inputs_embeds + position_embeddings
             return embeddings
         ```
-    - 说明：若要进行提示词微调，则需要替换 (全部或部分) prompt 为可学习参数，而上层调用时，并未传递`inputs_embeds`参数，因此需要重写此部分代码
+    - 说明：若要进行提示词微调，则需要替换 (全部或部分) `prompt` 为可学习参数，而上层调用时，并未传递 `inputs_embeds` 参数，因此需要重写此部分代码
 
 ### 解决方案
 
@@ -247,9 +247,6 @@ text 的 流程如下：
     # 替换原模型的嵌入模块
     clip_model.text_model.embeddings = custom_embeddings
     ```
-
-
-2. 
 
 1. `token_embedding`：将输入的文本序列转换为词嵌入向量。
 2. `position_embedding`：为词嵌入向量添加位置信息。

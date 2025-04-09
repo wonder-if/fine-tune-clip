@@ -184,7 +184,7 @@
       (patch_embedding): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16), bias=False)
       (position_embedding): Embedding(197, 768)
     )
-    (pre_layrnorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (pre_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
     (encoder): CLIPEncoder(
       (layers): ModuleList(
         (0-11): 12 x CLIPEncoderLayer(
