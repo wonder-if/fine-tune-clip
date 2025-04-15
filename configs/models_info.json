@@ -1,5 +1,5 @@
 {
-    "root": "/mnt/nas-data/work-data/models/",
+    "root": "/mnt/local-data/workspace/models/",
     "models": [
         {
             "name": "clip-vit-b-16-datacomp.l-s1b-b8k",

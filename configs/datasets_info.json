@@ -1,5 +1,5 @@
 {
-    "root": "/mnt/nas-data/work-data/datasets/images/",
+    "root": "/mnt/local-data/workspace/datasets/",
     "datasets": [
         {
             "name": "office-31",
@@ -10,19 +10,19 @@
                     "domain_name": "amazon",
                     "domain_id": 0,
                     "domain_abbr": "A",
-                    "domain_dir": "amazon/images/"
+                    "domain_dir": "amazon/"
                 },
                 {
                     "domain_name": "dslr",
                     "domain_id": 1,
                     "domain_abbr": "D",
-                    "domain_dir": "dslr/images/"
+                    "domain_dir": "dslr/"
                 },
                 {
                     "domain_name": "webcam",
                     "domain_id": 2,
                     "domain_abbr": "W",
-                    "domain_dir": "webcam/images/"
+                    "domain_dir": "webcam/"
                 }
             ]
         }

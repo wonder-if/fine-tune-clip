@@ -1,6 +1,8 @@
 import sys
 import os
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "cuda:1"
+
 # 获取项目根目录的绝对路径
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(project_root)
@@ -15,7 +17,13 @@ from transformers import (
 from datasets import load_dataset
 import torch
 
-from clip_tuner.data import DataManager, get_train_transforms, get_val_transforms
+from clip_tuner.data import (
+    DataManager,
+    get_train_transforms,
+    get_val_transforms,
+    get_train_tokenize_fn,
+    collate_fn,
+)
 from clip_tuner.utils import Logger
 from clip_tuner.models import (
     ModelManager,
@@ -77,10 +85,10 @@ model = add_learnable_prompts_to_clip_text_model(clip_model=clip_model)
 
 
 # 冻住除可训练嵌入参数外的所有参数
-# for name, param in clip_model.named_parameters():
-#     param.requires_grad_(False)
-#     if "learnable_embeddings" in name:
-#         param.requires_grad = True
+for name, param in clip_model.named_parameters():
+    param.requires_grad_(False)
+    if "learnable_embeddings" in name:
+        param.requires_grad = True
 
 # for name, param in model.named_parameters():
 #     print(f"Parameter name: {name}, Requires grad: {param.requires_grad}")
@@ -88,67 +96,47 @@ model = add_learnable_prompts_to_clip_text_model(clip_model=clip_model)
 
 prompt_template = "a photo of a {}."
 
-
-def label2prompt(example_batch):
-    # 获取
-    prompt_with_label = [
-        prompt_template.format(source_dataset.features["label"].int2str(label))
-        for label in example_batch["label"]
-    ]
-    text_inputs = clip_tokenizer(prompt_with_label, return_tensors="pt", padding=True)
-    example_batch["input_ids"] = text_inputs.input_ids
-    example_batch["attention_mask"] = text_inputs.attention_mask
-    return example_batch
-
-
-def collate_fn(examples):
-    pixel_values = torch.stack([example["pixel_values"] for example in examples])
-    input_ids = torch.tensor(
-        [example["input_ids"] for example in examples], dtype=torch.long
-    )
-    attention_mask = torch.tensor(
-        [example["attention_mask"] for example in examples], dtype=torch.long
-    )
-    return {
-        "pixel_values": pixel_values,
-        "input_ids": input_ids,
-        "attention_mask": attention_mask,
-        "return_loss": True,
-    }
-
+label2prompt = get_train_tokenize_fn(source_dataset, prompt_template, clip_tokenizer)
 
 source_dataset = source_dataset.map(
     function=label2prompt, batched=True, desc="Running tokenizer on source dataset"
 )
 
-target_dataset = target_dataset.map(
-    label2prompt, batched=True, desc="Running tokenizer on source dataset"
+# target_dataset = target_dataset.map(
+#     label2prompt, batched=True, desc="Running tokenizer on source dataset"
+# )
+
+training_args = TrainingArguments(
+    output_dir="./output",  # 必须指定（假设输出目录为当前目录下的output）
+    per_device_train_batch_size=64,
+    per_device_eval_batch_size=64,
+    learning_rate=5e-5,
+    warmup_steps=0,
+    weight_decay=0.1,
+    overwrite_output_dir=True,
+    do_train=True,
+    do_eval=True,
+    remove_unused_columns=False,
+    num_train_epochs=20,
+    dataloader_num_workers=8,
+    eval_strategy="no",  # 完全禁用评估
+    save_safetensors=False,
 )
-
-training_args = TrainingArguments()
-
-training_args.per_device_train_batch_size = 64
-training_args.per_device_eval_batch_size = 64
-training_args.learning_rate = 5e-5
-training_args.warmup_steps = 0
-training_args.weight_decay = 0.1
-training_args.overwrite_output_dir = True
-training_args.do_train = True
-training_args.do_eval = True
-training_args.remove_unused_columns = False
-training_args.num_train_epochs = 20
 
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=source_dataset if training_args.do_train else None,
-    eval_dataset=target_dataset if training_args.do_eval else None,
+    # eval_dataset=target_dataset if training_args.do_eval else None,
     data_collator=collate_fn,
 )
 
 
 train_result = trainer.train()
-# trainer.save_model()
-# trainer.log_metrics("train", train_result.metrics)
-# trainer.save_metrics("train", train_result.metrics)
-# trainer.save_state()
+zero_shot_result = trainer.zero_shot_evaluate()
+# eval_result = trainer.evaluate()
+trainer.save_model()
+trainer.log_metrics("train", train_result.metrics)
+trainer.save_metrics("train", train_result.metrics)
+trainer.save_metrics("evaluate", eval_result.metrics)
+trainer.save_state()
