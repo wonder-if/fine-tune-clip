@@ -2,7 +2,15 @@ import numpy as np
 from transformers import EvalPrediction
 from evaluate import load
 
-accuracy_metric = load("accuracy")
+import os
+
+# 构建配置文件路径
+accuracy_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),  # 向上两层
+    "accuracy",
+)
+
+accuracy_metric = load(accuracy_path)
 
 
 def compute_accuracy(eval_pred: EvalPrediction) -> dict:

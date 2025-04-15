@@ -22,7 +22,6 @@ from transformers.trainer_pt_utils import (
     nested_detach,
 )
 
-from ..data import zero_shot_collate_fn
 from .utils import compute_accuracy, compute_per_class_accuracy
 
 logger = logging.get_logger(__name__)
@@ -33,7 +32,10 @@ class BaseTrainer(Trainer):
         super().__init__(*args, **kwargs)
 
     def get_zero_shot_dataloader(
-        self, dataset, batch_size=None, data_collator=zero_shot_collate_fn
+        self,
+        dataset,
+        data_collator,
+        batch_size=None,
     ):
 
         batch_size = (
@@ -55,7 +57,7 @@ class BaseTrainer(Trainer):
 
         return self.accelerator.prepare(DataLoader(dataset, **dataloader_params))
 
-    def zero_shot_step(model, processor, inputs, candidates):
+    def zero_shot_step(self, model, processor, inputs, candidates):
 
         labels = inputs["labels"] if "labels" in inputs.keys() else None
         with torch.no_grad():
@@ -68,19 +70,23 @@ class BaseTrainer(Trainer):
 
             processed_inputs = processed_inputs.to(model.device)
             output = model(**processed_inputs)
-        loss = output.loss.mean().detach()
+        loss = output.loss.mean().detach() if output.loss is not None else None
         logits_per_image = output.logits_per_image
         return (loss, logits_per_image, labels)
 
     def zero_shot_loop(
         self,
         dataloader,
-        candidates,
+        class_names,
         processor,
         compute_per_class_metrics=False,
         metric_key_prefix="zero_shot_eval",
+        description="Zero-shot evaluation",
     ) -> EvalLoopOutput:
         model = self._wrap_model(self.model, training=False)
+        candidates = [
+            f"a photo of a {label_name.replace('_', ' ')}" for label_name in class_names
+        ]
         if len(self.accelerator._models) == 0 and model is self.model:
             start_time = time.time()
             model = (
@@ -128,11 +134,9 @@ class BaseTrainer(Trainer):
             observed_batch_size = find_batch_size(image_label_inputs)
             if observed_batch_size is not None:
                 observed_num_examples += observed_batch_size
-                if batch_size is None:
-                    batch_size = observed_batch_size
 
             losses, logits_per_image, labels = self.zero_shot_step(
-                model, processor, image_label_inputs["images"], candidates
+                model, processor, image_label_inputs, candidates
             )
 
             all_preds.add(logits_per_image)
@@ -179,9 +183,9 @@ class BaseTrainer(Trainer):
 
     def zero_shot_evaluate(
         self,
-        zero_shot_eval_dataset: Optional[Union[Dataset, Dict[str, Dataset]]] = None,
-        processor=None,
-        data_collator=None,
+        zero_shot_eval_dataset: Optional[Union[Dataset, Dict[str, Dataset]]],
+        data_collator,
+        processor,
         batch_size=None,
         compute_per_class_metrics=False,
         metric_key_prefix: str = "zero_shot_eval",
@@ -203,19 +207,20 @@ class BaseTrainer(Trainer):
         # memory metrics - must set up as early as possible
         self._memory_tracker.start()
 
+        batch_size = batch_size if batch_size is not None else self.args.eval_batch_size
+
         dataloader = self.get_zero_shot_dataloader(
-            zero_shot_eval_dataset, batch_size, data_collator
+            zero_shot_eval_dataset,
+            data_collator,
+            batch_size,
         )
-        class_names = zero_shot_eval_dataset.features["label"].names
-        candidates = [
-            f"a photo of a {label_name.replace('_', ' ')}" for label_name in class_names
-        ]
 
         start_time = time.time()
+        class_names = zero_shot_eval_dataset.features["label"].names
 
         output = self.zero_shot_loop(
             dataloader,
-            candidates=candidates,
+            class_names=class_names,
             processor=processor,
             compute_per_class_metrics=compute_per_class_metrics,
             metric_key_prefix=metric_key_prefix,
