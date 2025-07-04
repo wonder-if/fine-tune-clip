@@ -1,4 +1,43 @@
 import torch
+from torchvision.datasets import ImageFolder
+from datasets import Dataset, Features, ClassLabel, Image as HfImage
+
+
+def make_dataset_dict(path: str, split_name: str = "train"):
+    """
+    Load images from a folder path using torchvision ImageFolder,
+    convert to a HuggingFace Dataset, and return a dict {split_name: dataset}.
+
+    Args:
+        path (str): Path to the folder containing class subfolders.
+        split_name (str): Name to assign to the resulting split key.
+
+    Returns:
+        dict: A mapping from split_name to a HuggingFace Dataset.
+
+    >>> dataset_dict = make_dataset_dict("path/to/folder")
+    >>> from datasets import DatasetDict
+    >>> dataset_dict = DatasetDict(datasets_dict)
+    >>> dataset_dict
+
+    """
+    # Use ImageFolder to scan subfolders as classes
+    torch_ds = ImageFolder(root=path)
+
+    # Extract image file paths and corresponding labels
+    image_paths, labels = zip(*torch_ds.samples)
+
+    # Define HF Dataset features: Image + ClassLabel
+    features = Features(
+        {"image": HfImage(), "label": ClassLabel(names=torch_ds.classes)}
+    )
+
+    # Create a HF Dataset from the collected paths and labels
+    hf_ds = Dataset.from_dict(
+        {"image": list(image_paths), "label": list(labels)}, features=features
+    )
+
+    return {split_name: hf_ds}
 
 
 def get_train_tokenize_fn(dataset, prompt_template, clip_tokenizer):

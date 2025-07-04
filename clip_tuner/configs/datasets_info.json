@@ -25,6 +25,49 @@
                     "domain_dir": "webcam/images/"
                 }
             ]
+        },
+        {
+            "name": "domainnet",
+            "dir": "domainnet/",
+            "num_classes": 345,
+            "domains": [
+                {
+                    "domain_name": "clipart",
+                    "domain_id": 0,
+                    "domain_abbr": "clp",
+                    "domain_dir": "clipart/"
+                },
+                {
+                    "domain_name": "infograph",
+                    "domain_id": 1,
+                    "domain_abbr": "inf",
+                    "domain_dir": "infograph/"
+                },
+                {
+                    "domain_name": "painting",
+                    "domain_id": 2,
+                    "domain_abbr": "pnt",
+                    "domain_dir": "painting/"
+                },
+                {
+                    "domain_name": "quickdraw",
+                    "domain_id": 3,
+                    "domain_abbr": "qdr",
+                    "domain_dir": "quickdraw/"
+                },
+                {
+                    "domain_name": "real",
+                    "domain_id": 4,
+                    "domain_abbr": "rel",
+                    "domain_dir": "real/"
+                },
+                {
+                    "domain_name": "sketch",
+                    "domain_id": 5,
+                    "domain_abbr": "skt",
+                    "domain_dir": "sketch/"
+                }
+            ]
         }
     ]
 }

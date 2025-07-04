@@ -1,5 +1,5 @@
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Starting main program
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Configuration:
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Configuration:
 data:
   blur: False
   image_mean: [0.485, 0.456, 0.406]
@@ -15,26 +15,914 @@ training:
   lr_scheduler: cosine
   num_epochs: 100
   optimizer: sgd
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DataManager initialized
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
-2025-04-08 23:42:18 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Listing all datasets
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/amazon/images/, num_classes=31, class_names=['mouse', 'mobile_phone', 'printer', 'punchers', 'keyboard', 'tape_dispenser', 'bike', 'desktop_computer', 'trash_can', 'scissors', 'file_cabinet', 'projector', 'letter_tray', 'bottle', 'monitor', 'laptop_computer', 'calculator', 'phone', 'bookcase', 'ring_binder', 'headphones', 'speaker', 'desk_lamp', 'stapler', 'mug', 'pen', 'back_pack', 'desk_chair', 'ruler', 'bike_helmet', 'paper_notebook'])
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/dslr/images/, num_classes=31, class_names=['paper_notebook', 'ring_binder', 'pen', 'trash_can', 'mug', 'projector', 'speaker', 'bottle', 'ruler', 'bike', 'laptop_computer', 'stapler', 'bike_helmet', 'calculator', 'bookcase', 'desk_lamp', 'letter_tray', 'desktop_computer', 'monitor', 'headphones', 'mouse', 'desk_chair', 'file_cabinet', 'phone', 'scissors', 'back_pack', 'tape_dispenser', 'punchers', 'keyboard', 'printer', 'mobile_phone'])
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/webcam/images/, num_classes=31, class_names=['back_pack', 'tape_dispenser', 'bike', 'letter_tray', 'desktop_computer', 'calculator', 'file_cabinet', 'laptop_computer', 'speaker', 'ruler', 'mobile_phone', 'bottle', 'desk_lamp', 'stapler', 'mug', 'mouse', 'headphones', 'ring_binder', 'bookcase', 'monitor', 'pen', 'scissors', 'printer', 'projector', 'keyboard', 'punchers', 'bike_helmet', 'paper_notebook', 'phone', 'trash_can', 'desk_chair'])
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: webcam
-2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: webcam
-2025-04-08 23:42:19 [INFO] [logger.py] [info] [line 53] DatasetDict({
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 10:18:28 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:18:28 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:18:28 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:18:28 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 10:18:28 [INFO] [logger.py] [info] [line 53] Main program completed
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 10:20:31 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:20:31 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:20:31 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:20:31 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 10:20:31 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 10:24:37 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:24:37 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:24:37 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:24:37 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 10:24:37 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 10:25:03 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:25:03 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:25:03 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:25:03 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] {'The_Eiffel_Tower': 114, 'The_Great_Wall_of_China': 116, 'The_Mona_Lisa': 150, 'aircraft_carrier': 27, 'airplane': 73, 'alarm_clock': 93, 'ambulance': 80, 'angel': 165, 'animal_migration': 235, 'ant': 81, 'anvil': 122, 'apple': 88, 'arm': 50, 'asparagus': 49, 'axe': 48, 'backpack': 33, 'banana': 50, 'bandage': 47, 'barn': 157, 'baseball': 116, 'baseball_bat': 106, 'basket': 78, 'basketball': 61, 'bat': 35, 'bathtub': 100, 'beach': 105, 'bear': 124, 'beard': 156, 'bed': 197, 'bee': 202, 'belt': 137, 'bench': 71, 'bicycle': 71, 'binoculars': 246, 'bird': 336, 'birthday_cake': 165, 'blackberry': 106, 'blueberry': 171, 'book': 167, 'boomerang': 92, 'bottlecap': 118, 'bowtie': 146, 'bracelet': 293, 'brain': 76, 'bread': 197, 'bridge': 66, 'broccoli': 105, 'broom': 171, 'bucket': 142, 'bulldozer': 111, 'bus': 101, 'bush': 46, 'butterfly': 160, 'cactus': 119, 'cake': 108, 'calculator': 55, 'calendar': 66, 'camel': 154, 'camera': 58, 'camouflage': 181, 'campfire': 122, 'candle': 151, 'cannon': 103, 'canoe': 68, 'car': 99, 'carrot': 52, 'castle': 47, 'cat': 43, 'ceiling_fan': 35, 'cell_phone': 38, 'cello': 93, 'chair': 94, 'chandelier': 223, 'church': 54, 'circle': 199, 'clarinet': 214, 'clock': 69, 'cloud': 172, 'coffee_cup': 357, 'compass': 191, 'computer': 287, 'cookie': 97, 'cooler': 214, 'couch': 232, 'cow': 188, 'crab': 108, 'crayon': 141, 'crocodile': 164, 'crown': 208, 'cruise_ship': 208, 'cup': 128, 'diamond': 207, 'dishwasher': 109, 'diving_board': 182, 'dog': 70, 'dolphin': 84, 'donut': 139, 'door': 81, 'dragon': 105, 'dresser': 41, 'drill': 136, 'drums': 194, 'duck': 142, 'dumbbell': 387, 'ear': 101, 'elbow': 199, 'elephant': 115, 'envelope': 147, 'eraser': 138, 'eye': 108, 'eyeglasses': 201, 'face': 54, 'fan': 148, 'feather': 268, 'fence': 165, 'finger': 153, 'fire_hydrant': 149, 'fireplace': 138, 'firetruck': 167, 'fish': 130, 'flamingo': 274, 'flashlight': 221, 'flip_flops': 147, 'floor_lamp': 180, 'flower': 253, 'flying_saucer': 233, 'foot': 85, 'fork': 200, 'frog': 163, 'frying_pan': 187, 'garden': 63, 'garden_hose': 147, 'giraffe': 134, 'goatee': 255, 'golf_club': 207, 'grapes': 93, 'grass': 148, 'guitar': 103, 'hamburger': 187, 'hammer': 147, 'hand': 97, 'harp': 258, 'hat': 120, 'headphones': 285, 'hedgehog': 138, 'helicopter': 145, 'helmet': 163, 'hexagon': 196, 'hockey_puck': 188, 'hockey_stick': 155, 'horse': 201, 'hospital': 95, 'hot_air_balloon': 198, 'hot_dog': 38, 'hot_tub': 144, 'hourglass': 100, 'house': 108, 'house_plant': 25, 'hurricane': 92, 'ice_cream': 160, 'jacket': 72, 'jail': 104, 'kangaroo': 106, 'key': 59, 'keyboard': 32, 'knee': 45, 'knife': 32, 'ladder': 74, 'lantern': 179, 'laptop': 26, 'leaf': 12, 'leg': 89, 'light_bulb': 12, 'lighter': 66, 'lighthouse': 123, 'lightning': 171, 'line': 13, 'lion': 46, 'lipstick': 101, 'lobster': 243, 'lollipop': 74, 'mailbox': 18, 'map': 42, 'marker': 57, 'matches': 60, 'megaphone': 73, 'mermaid': 207, 'microphone': 143, 'microwave': 16, 'monkey': 123, 'moon': 126, 'mosquito': 56, 'motorbike': 42, 'mountain': 67, 'mouse': 74, 'moustache': 222, 'mouth': 110, 'mug': 168, 'mushroom': 136, 'nail': 41, 'necklace': 83, 'nose': 57, 'ocean': 54, 'octagon': 29, 'octopus': 190, 'onion': 87, 'oven': 14, 'owl': 133, 'paint_can': 60, 'paintbrush': 25, 'palm_tree': 65, 'panda': 87, 'pants': 16, 'paper_clip': 122, 'parachute': 82, 'parrot': 75, 'passport': 26, 'peanut': 84, 'pear': 74, 'peas': 90, 'pencil': 51, 'penguin': 121, 'piano': 20, 'pickup_truck': 46, 'picture_frame': 88, 'pig': 93, 'pillow': 151, 'pineapple': 83, 'pizza': 77, 'pliers': 38, 'police_car': 104, 'pond': 105, 'pool': 139, 'popsicle': 288, 'postcard': 91, 'potato': 86, 'power_outlet': 25, 'purse': 41, 'rabbit': 105, 'raccoon': 187, 'radio': 30, 'rain': 71, 'rainbow': 61, 'rake': 119, 'remote_control': 117, 'rhinoceros': 102, 'rifle': 83, 'river': 134, 'roller_coaster': 143, 'rollerskates': 204, 'sailboat': 162, 'sandwich': 189, 'saw': 76, 'saxophone': 236, 'school_bus': 230, 'scissors': 205, 'scorpion': 171, 'screwdriver': 205, 'sea_turtle': 236, 'see_saw': 299, 'shark': 203, 'sheep': 114, 'shoe': 127, 'shorts': 140, 'shovel': 214, 'sink': 133, 'skateboard': 263, 'skull': 178, 'skyscraper': 195, 'sleeping_bag': 96, 'smiley_face': 113, 'snail': 166, 'snake': 168, 'snorkel': 278, 'snowflake': 175, 'snowman': 174, 'soccer_ball': 85, 'sock': 167, 'speedboat': 271, 'spider': 161, 'spoon': 228, 'spreadsheet': 187, 'square': 163, 'squiggle': 148, 'squirrel': 221, 'stairs': 386, 'star': 111, 'steak': 155, 'stereo': 289, 'stethoscope': 343, 'stitches': 206, 'stop_sign': 169, 'stove': 256, 'strawberry': 357, 'streetlight': 326, 'string_bean': 139, 'submarine': 344, 'suitcase': 377, 'sun': 248, 'swan': 469, 'sweater': 222, 'swing_set': 143, 'sword': 139, 'syringe': 128, 't-shirt': 98, 'table': 297, 'teapot': 222, 'teddy-bear': 124, 'telephone': 148, 'television': 136, 'tennis_racquet': 187, 'tent': 153, 'tiger': 315, 'toaster': 196, 'toe': 85, 'toilet': 175, 'tooth': 101, 'toothbrush': 159, 'toothpaste': 105, 'tornado': 169, 'tractor': 154, 'traffic_light': 211, 'train': 109, 'tree': 126, 'triangle': 183, 'trombone': 227, 'truck': 117, 'trumpet': 117, 'umbrella': 145, 'underwear': 253, 'van': 207, 'vase': 161, 'violin': 174, 'washing_machine': 265, 'watermelon': 193, 'waterslide': 159, 'whale': 343, 'wheel': 133, 'windmill': 245, 'wine_bottle': 230, 'wine_glass': 220, 'wristwatch': 285, 'yoga': 165, 'zebra': 235, 'zigzag': 323}
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 10:25:03 [INFO] [logger.py] [info] [line 53] Main program completed
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 10:39:48 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 10:39:48 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 10:39:48 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 10:39:48 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: amazon
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: amazon
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2817
+    })
+})
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: dslr
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: dslr
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 498
+    })
+})
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: webcam
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: webcam
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
     train: Dataset({
         features: ['image', 'label'],
         num_rows: 795
     })
 })
-2025-04-08 23:42:19 [INFO] [logger.py] [info] [line 53] Main program completed
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: infograph
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: infograph
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 53201
+    })
+})
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: painting
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: painting
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 75759
+    })
+})
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: quickdraw
+2025-07-04 10:39:48 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: quickdraw
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 172500
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: real
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: real
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 175327
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: sketch
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: sketch
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 70386
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Art
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Art
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2427
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Clipart
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Clipart
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4365
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Product
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Product
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4439
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Real World
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Real World
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4357
+    })
+})
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Getting dataset: visda-2017, Domain: synthetic
+2025-07-04 10:39:49 [INFO] [logger.py] [info] [line 53] Dataset found: visda-2017, Domain: synthetic
+2025-07-04 10:39:50 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 118881
+    })
+})
+2025-07-04 10:39:50 [INFO] [logger.py] [info] [line 53] Getting dataset: visda-2017, Domain: real
+2025-07-04 10:39:50 [INFO] [logger.py] [info] [line 53] Dataset found: visda-2017, Domain: real
+2025-07-04 10:39:50 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})
+2025-07-04 10:39:50 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 11:03:15 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:03:15 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:03:15 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:03:15 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: amazon
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: amazon
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2817
+    })
+})
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: dslr
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: dslr
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 498
+    })
+})
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: webcam
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: webcam
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 795
+    })
+})
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: clipart
+2025-07-04 11:03:15 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: clipart
+2025-07-04 11:03:17 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 11:03:17 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: infograph
+2025-07-04 11:03:17 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: infograph
+2025-07-04 11:03:23 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 53201
+    })
+})
+2025-07-04 11:03:23 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: painting
+2025-07-04 11:03:23 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: painting
+2025-07-04 11:03:28 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 75759
+    })
+})
+2025-07-04 11:03:28 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: quickdraw
+2025-07-04 11:03:28 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: quickdraw
+2025-07-04 11:04:16 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 172500
+    })
+})
+2025-07-04 11:04:16 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: real
+2025-07-04 11:04:16 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: real
+2025-07-04 11:05:19 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 175327
+    })
+})
+2025-07-04 11:05:19 [INFO] [logger.py] [info] [line 53] Getting dataset: domainnet, Domain: sketch
+2025-07-04 11:05:19 [INFO] [logger.py] [info] [line 53] Dataset found: domainnet, Domain: sketch
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 70386
+    })
+})
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Art
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Art
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2427
+    })
+})
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Clipart
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Clipart
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4365
+    })
+})
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Product
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Product
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4439
+    })
+})
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Getting dataset: office-home, Domain: Real World
+2025-07-04 11:05:56 [INFO] [logger.py] [info] [line 53] Dataset found: office-home, Domain: Real World
+2025-07-04 11:05:59 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4357
+    })
+})
+2025-07-04 11:05:59 [INFO] [logger.py] [info] [line 53] Getting dataset: visda-2017, Domain: synthetic
+2025-07-04 11:05:59 [INFO] [logger.py] [info] [line 53] Dataset found: visda-2017, Domain: synthetic
+2025-07-04 11:06:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 118881
+    })
+})
+2025-07-04 11:06:30 [INFO] [logger.py] [info] [line 53] Getting dataset: visda-2017, Domain: real
+2025-07-04 11:06:30 [INFO] [logger.py] [info] [line 53] Dataset found: visda-2017, Domain: real
+2025-07-04 11:06:32 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})
+2025-07-04 11:06:32 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-07-04 11:07:30 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-31
+2025-07-04 11:07:30 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: clipart
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: infograph
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: painting
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: quickdraw
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: real
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: domainnet, Domain: sketch
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset domainnet
+2025-07-04 11:07:30 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-home
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Art
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Clipart
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Product
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: office-home, Domain: Real World
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset office-home
+2025-07-04 11:07:30 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: visda-2017
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: synthetic
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Adding dataset: visda-2017, Domain: real
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Successfully added dataset visda-2017
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Data manager initialized, available datasets:
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/local-data/workspace/datasets/office-31/amazon/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/local-data/workspace/datasets/office-31/dslr/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/local-data/workspace/datasets/office-31/webcam/, num_classes=31)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=clipart, data_dir=/mnt/local-data/workspace/datasets/domainnet/clipart/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=infograph, data_dir=/mnt/local-data/workspace/datasets/domainnet/infograph/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=painting, data_dir=/mnt/local-data/workspace/datasets/domainnet/painting/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=quickdraw, data_dir=/mnt/local-data/workspace/datasets/domainnet/quickdraw/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/domainnet/real/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=domainnet, domain_name=sketch, data_dir=/mnt/local-data/workspace/datasets/domainnet/sketch/, num_classes=345)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Art, data_dir=/mnt/local-data/workspace/datasets/office-home/Art/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Clipart, data_dir=/mnt/local-data/workspace/datasets/office-home/Clipart/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Product, data_dir=/mnt/local-data/workspace/datasets/office-home/Product/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-home, domain_name=Real World, data_dir=/mnt/local-data/workspace/datasets/office-home/Real World/, num_classes=65)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=synthetic, data_dir=/mnt/local-data/workspace/datasets/visda-2017/train/, num_classes=12)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=visda-2017, domain_name=real, data_dir=/mnt/local-data/workspace/datasets/visda-2017/validation/, num_classes=12)
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2817
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 498
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 795
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 48833
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 53201
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 75759
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 172500
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 175327
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 70386
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 2427
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4365
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4439
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 4357
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 118881
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})
+2025-07-04 11:07:30 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 55388
+    })
+})

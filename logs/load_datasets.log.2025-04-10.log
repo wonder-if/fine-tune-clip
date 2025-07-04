@@ -1,0 +1,40 @@
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Starting main program
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Configuration:
+data:
+  blur: False
+  image_mean: [0.485, 0.456, 0.406]
+  image_size: 224
+  image_std: [0.229, 0.224, 0.225]
+model:
+  name: resnet50
+  num_labels: 20
+  pretrained: True
+training:
+  batch_size: 64
+  lr: 0.001
+  lr_scheduler: cosine
+  num_epochs: 100
+  optimizer: sgd
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DataManager initialized
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Loading datasets from JSON file: ./configs/datasets_info.json
+2025-04-08 23:42:18 [DEBUG] [logger.py] [debug] [line 50] Processing dataset: office-31
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: amazon
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: dslr
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Adding dataset: office-31, Domain: webcam
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Successfully added datasetoffice-31
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Datasets information loaded successfully
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Listing all datasets
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=amazon, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/amazon/images/, num_classes=31, class_names=['mouse', 'mobile_phone', 'printer', 'punchers', 'keyboard', 'tape_dispenser', 'bike', 'desktop_computer', 'trash_can', 'scissors', 'file_cabinet', 'projector', 'letter_tray', 'bottle', 'monitor', 'laptop_computer', 'calculator', 'phone', 'bookcase', 'ring_binder', 'headphones', 'speaker', 'desk_lamp', 'stapler', 'mug', 'pen', 'back_pack', 'desk_chair', 'ruler', 'bike_helmet', 'paper_notebook'])
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=dslr, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/dslr/images/, num_classes=31, class_names=['paper_notebook', 'ring_binder', 'pen', 'trash_can', 'mug', 'projector', 'speaker', 'bottle', 'ruler', 'bike', 'laptop_computer', 'stapler', 'bike_helmet', 'calculator', 'bookcase', 'desk_lamp', 'letter_tray', 'desktop_computer', 'monitor', 'headphones', 'mouse', 'desk_chair', 'file_cabinet', 'phone', 'scissors', 'back_pack', 'tape_dispenser', 'punchers', 'keyboard', 'printer', 'mobile_phone'])
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] DatasetInfo(dataset_name=office-31, domain_name=webcam, data_dir=/mnt/nas-data/work-data/datasets/images/office-31/webcam/images/, num_classes=31, class_names=['back_pack', 'tape_dispenser', 'bike', 'letter_tray', 'desktop_computer', 'calculator', 'file_cabinet', 'laptop_computer', 'speaker', 'ruler', 'mobile_phone', 'bottle', 'desk_lamp', 'stapler', 'mug', 'mouse', 'headphones', 'ring_binder', 'bookcase', 'monitor', 'pen', 'scissors', 'printer', 'projector', 'keyboard', 'punchers', 'bike_helmet', 'paper_notebook', 'phone', 'trash_can', 'desk_chair'])
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Getting dataset: office-31, Domain: webcam
+2025-04-08 23:42:18 [INFO] [logger.py] [info] [line 53] Dataset found: office-31, Domain: webcam
+2025-04-08 23:42:19 [INFO] [logger.py] [info] [line 53] DatasetDict({
+    train: Dataset({
+        features: ['image', 'label'],
+        num_rows: 795
+    })
+})
+2025-04-08 23:42:19 [INFO] [logger.py] [info] [line 53] Main program completed
