@@ -6,7 +6,7 @@ from datetime import datetime
 
 class Logger:
     def __init__(
-        self, log_dir="logs", log_file="app.log", file_mode="a", log_level=logging.DEBUG
+        self, log_dir="logs", log_file="exp.log", file_mode="a", log_level=logging.DEBUG
     ):
         """
         初始化日志系统
@@ -60,6 +60,20 @@ class Logger:
 
     def critical(self, message):
         self.logger.critical(message)
+
+
+def get_logger(exp_name, *args, **kwargs):
+    if args:
+        log_dir = args[0]
+    elif kwargs and kwargs.get("log_dir"):
+        log_dir = kwargs["log_dir"]
+    else:
+        log_dir = "./logs/"
+    log_dir = log_dir + exp_name
+    log_file = f"{exp_name}.log"
+    logger = Logger(*args, **kwargs)
+
+    return logger
 
 
 # 示例用法
