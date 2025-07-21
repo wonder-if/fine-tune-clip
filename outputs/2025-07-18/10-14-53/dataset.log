@@ -1,0 +1,53 @@
+[2025-07-18 10:14:53,743][clip_tuner.data.dataset_manager][INFO] - DataManager initialized
+[2025-07-18 10:14:53,743][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: amazon
+[2025-07-18 10:14:53,743][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 10:14:53,743][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: dslr
+[2025-07-18 10:14:53,743][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: webcam
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: clipart
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: infograph
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: painting
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: quickdraw
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: real
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,744][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: sketch
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Art
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Clipart
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Product
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Real World
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: synthetic
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: real
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Datasets information loaded successfully
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Getting dataset: office-31, Domain: amazon
+[2025-07-18 10:14:53,745][clip_tuner.data.dataset_manager][INFO] - Dataset found: office-31, Domain: amazon
+[2025-07-18 10:14:53,833][__main__][INFO] - Dataset({
+    features: ['image', 'label'],
+    num_rows: 2817
+})
+[2025-07-18 10:14:53,837][clip_tuner.processors.transform][INFO] - Train transforms: Compose(
+    RandomResizedCrop(size=[224, 224], scale=(0.1, 1.0), ratio=(0.75, 1.33), interpolation=bicubic, antialias=True)
+    RandomHorizontalFlip(p=0.5)
+    ColorJitter(brightness=(0.6, 1.4), contrast=(0.6, 1.4), saturation=(0.6, 1.4), hue=(-0.2, 0.2))
+    GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 2.0))
+    RandomGrayscale(p=0.2)
+    ToTensor()
+    Normalize(mean=[0.481, 0.458, 0.408], std=[0.269, 0.262, 0.276])
+)
+[2025-07-18 10:14:53,840][clip_tuner.processors.transform][INFO] - Validation transforms: Compose(
+    Resize(size=[224, 224], interpolation=bicubic, max_size=None, antialias=True)
+    CenterCrop(size=[224, 224])
+    ToTensor()
+    Normalize(mean=[0.481, 0.458, 0.408], std=[0.269, 0.262, 0.276])
+)

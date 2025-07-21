@@ -68,46 +68,31 @@ class DatasetManager:
         list_datasets(self): 列出所有数据集信息
     """
 
-    def __init__(self, datasets_meta="default", dataset_root=None, logger=None):
-        self.logger = logger
-        if self.logger is None:
-            self.logger = logging.getLogger(__name__)
+    def __init__(self, datasets_root, datasets_meta):
+        self.logger = logging.getLogger(__name__)
         self.logger.info("DataManager initialized")
+        self.datasets_root = datasets_root
+        self.datasets_meta = datasets_meta
         self.datasets = []
+        self.load_from_config()
 
-        if datasets_meta == "default":
-            self.load_from_json(config_file_path, dataset_root)
-        else:
-            self.load_from_json(datasets_meta, dataset_root)
-        if dataset_root is not None:
-            self.datasets_root = dataset_root
-        # self.list_datasets()
-
-    def load_from_json(self, file_name, dataset_root=None):
-        self.logger.info(f"Loading datasets from JSON file: {file_name}")
+    def load_from_config(self):
         try:
-            with open(file_name, "r") as f:
-                self.datasets_meta = json.load(f)
-
-            self.datasets_root = (
-                dataset_root if dataset_root is not None else self.datasets_meta["root"]
-            )
-
-            for dataset_info in self.datasets_meta["datasets"]:
-                self.logger.debug(f"Processing dataset: {dataset_info['name']}")
-                if dataset_info["domains"] is not None:
-                    for domain_info in dataset_info["domains"]:
+            for dataset_meta in self.datasets_meta:
+                self.logger.debug(f"Processing dataset: {dataset_meta['name']}")
+                if dataset_meta["domains"] is not None:
+                    for domain_info in dataset_meta["domains"]:
                         self.add_dataset(
-                            dataset_info["name"],
-                            dataset_info["dir"],
-                            dataset_info["num_classes"],
+                            dataset_meta["name"],
+                            dataset_meta["dir"],
+                            dataset_meta["num_classes"],
                             domain_info,
                         )
                 else:
                     self.add_dataset(
-                        dataset_info["name"],
-                        dataset_info["dir"],
-                        dataset_info["num_classes"],
+                        dataset_meta["name"],
+                        dataset_meta["dir"],
+                        dataset_meta["num_classes"],
                         None,
                     )
             self.logger.info("Datasets information loaded successfully")

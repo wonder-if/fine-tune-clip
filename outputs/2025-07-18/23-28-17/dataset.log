@@ -1,0 +1,164 @@
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - DataManager initialized
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: amazon
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: dslr
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: webcam
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 23:28:17,111][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: clipart
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: infograph
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: painting
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: quickdraw
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: real
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: sketch
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Art
+[2025-07-18 23:28:17,112][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Clipart
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Product
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Real World
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: synthetic
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: real
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Datasets information loaded successfully
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Getting dataset: office-31, Domain: amazon
+[2025-07-18 23:28:17,113][clip_tuner.data.dataset_manager][INFO] - Dataset found: office-31, Domain: amazon
+[2025-07-18 23:28:17,115][__main__][INFO] - Dataset({
+    features: ['image', 'label'],
+    num_rows: 2817
+})
+[2025-07-18 23:28:17,120][clip_tuner.processors.transform][INFO] - Train transforms: Compose(
+    RandomResizedCrop(size=[224, 224], scale=(0.1, 1.0), ratio=(0.75, 1.33), interpolation=bicubic, antialias=True)
+    RandomHorizontalFlip(p=0.5)
+    ColorJitter(brightness=(0.6, 1.4), contrast=(0.6, 1.4), saturation=(0.6, 1.4), hue=(-0.2, 0.2))
+    GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 2.0))
+    RandomGrayscale(p=0.2)
+    ToTensor()
+    Normalize(mean=[0.481, 0.458, 0.408], std=[0.269, 0.262, 0.276])
+)
+[2025-07-18 23:28:17,123][clip_tuner.processors.transform][INFO] - Validation transforms: Compose(
+    Resize(size=[224, 224], interpolation=bicubic, max_size=None, antialias=True)
+    CenterCrop(size=[224, 224])
+    ToTensor()
+    Normalize(mean=[0.481, 0.458, 0.408], std=[0.269, 0.262, 0.276])
+)
+[2025-07-18 23:28:17,125][clip_tuner.models.model_manager][INFO] - ModelManager initialized
+[2025-07-18 23:28:17,125][clip_tuner.models.model_manager][INFO] - Adding model: clip-vit-b-16-datacomp.l-s1b-b8k
+[2025-07-18 23:28:17,125][clip_tuner.models.model_manager][INFO] - Successfully added modelclip-vit-b-16-datacomp.l-s1b-b8k
+[2025-07-18 23:28:17,125][clip_tuner.models.model_manager][INFO] - Adding model: clip-vit-l-14-datacomp.xl-s13b-b90k
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Successfully added modelclip-vit-l-14-datacomp.xl-s13b-b90k
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Adding model: clip-vit-base-patch32
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Successfully added modelclip-vit-base-patch32
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Adding model: clip-vit-base-patch16
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Successfully added modelclip-vit-base-patch16
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Models information loaded successfully
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Getting model: clip-vit-b-16-datacomp.l-s1b-b8k
+[2025-07-18 23:28:17,126][clip_tuner.models.model_manager][INFO] - Model found: clip-vit-b-16-datacomp.l-s1b-b8k
+[2025-07-18 23:28:17,954][__main__][INFO] - (CLIPModel(
+  (text_model): CLIPTextTransformer(
+    (embeddings): CLIPTextEmbeddings(
+      (token_embedding): Embedding(49408, 512)
+      (position_embedding): Embedding(77, 512)
+    )
+    (encoder): CLIPEncoder(
+      (layers): ModuleList(
+        (0-11): 12 x CLIPEncoderLayer(
+          (self_attn): CLIPSdpaAttention(
+            (k_proj): Linear(in_features=512, out_features=512, bias=True)
+            (v_proj): Linear(in_features=512, out_features=512, bias=True)
+            (q_proj): Linear(in_features=512, out_features=512, bias=True)
+            (out_proj): Linear(in_features=512, out_features=512, bias=True)
+          )
+          (layer_norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (mlp): CLIPMLP(
+            (activation_fn): QuickGELUActivation()
+            (fc1): Linear(in_features=512, out_features=2048, bias=True)
+            (fc2): Linear(in_features=2048, out_features=512, bias=True)
+          )
+          (layer_norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (final_layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  )
+  (vision_model): CLIPVisionTransformer(
+    (embeddings): CLIPVisionEmbeddings(
+      (patch_embedding): Conv2d(3, 768, kernel_size=(32, 32), stride=(32, 32), bias=False)
+      (position_embedding): Embedding(50, 768)
+    )
+    (pre_layrnorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (encoder): CLIPEncoder(
+      (layers): ModuleList(
+        (0-11): 12 x CLIPEncoderLayer(
+          (self_attn): CLIPSdpaAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=True)
+            (v_proj): Linear(in_features=768, out_features=768, bias=True)
+            (q_proj): Linear(in_features=768, out_features=768, bias=True)
+            (out_proj): Linear(in_features=768, out_features=768, bias=True)
+          )
+          (layer_norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (mlp): CLIPMLP(
+            (activation_fn): QuickGELUActivation()
+            (fc1): Linear(in_features=768, out_features=3072, bias=True)
+            (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          )
+          (layer_norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (post_layernorm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  )
+  (visual_projection): Linear(in_features=768, out_features=512, bias=False)
+  (text_projection): Linear(in_features=512, out_features=512, bias=False)
+), CLIPTokenizer(name_or_path='/mnt/local-data/workspace/models/modelscope/hub/laion/CLIP-ViT-B-16-DataComp.L-s1B-b8K/', vocab_size=49408, model_max_length=77, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|startoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	49406: AddedToken("<|startoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	49407: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+), CLIPProcessor:
+- image_processor: CLIPImageProcessor {
+  "crop_size": {
+    "height": 224,
+    "width": 224
+  },
+  "do_center_crop": true,
+  "do_convert_rgb": true,
+  "do_normalize": true,
+  "do_rescale": true,
+  "do_resize": true,
+  "image_mean": [
+    0.48145466,
+    0.4578275,
+    0.40821073
+  ],
+  "image_processor_type": "CLIPImageProcessor",
+  "image_std": [
+    0.26862954,
+    0.26130258,
+    0.27577711
+  ],
+  "resample": 3,
+  "rescale_factor": 0.00392156862745098,
+  "size": {
+    "shortest_edge": 224
+  }
+}
+
+- tokenizer: CLIPTokenizerFast(name_or_path='/mnt/local-data/workspace/models/modelscope/hub/laion/CLIP-ViT-B-16-DataComp.L-s1B-b8K/', vocab_size=49408, model_max_length=77, is_fast=True, padding_side='right', truncation_side='right', special_tokens={'bos_token': '<|startoftext|>', 'eos_token': '<|endoftext|>', 'unk_token': '<|endoftext|>', 'pad_token': '<|endoftext|>'}, clean_up_tokenization_spaces=False, added_tokens_decoder={
+	49406: AddedToken("<|startoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),
+	49407: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+)
+
+{
+  "processor_class": "CLIPProcessor"
+}
+)

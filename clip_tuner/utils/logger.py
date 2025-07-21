@@ -24,10 +24,6 @@ class Logger:
         log_format = "%(asctime)s [%(levelname)s] [%(filename)s] [%(funcName)s] [line %(lineno)d] %(message)s"
         date_format = "%Y-%m-%d %H:%M:%S"
 
-        # 配置日志记录器
-        self.logger = logging.getLogger(__name__)
-        self.logger.setLevel(log_level)
-
         # 添加文件处理器（按天分割）
         file_handler = TimedRotatingFileHandler(
             self.log_file, when="midnight", interval=1, backupCount=7
@@ -41,6 +37,10 @@ class Logger:
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(logging.Formatter(log_format, datefmt=date_format))
         self.logger.addHandler(console_handler)
+
+        # 配置日志记录器
+        logging.basicConfig(level=log_level, handlers=[file_handler, console_handler])
+        self.logger = logging.getLogger()
 
     @property
     def log_path(self):

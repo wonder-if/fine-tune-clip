@@ -30,6 +30,7 @@ logger = logging.get_logger(__name__)
 class BaseTrainer(Trainer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.loss_fn = loss_fn
 
     def get_zero_shot_dataloader(
         self,

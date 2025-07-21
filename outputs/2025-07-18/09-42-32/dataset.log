@@ -1,0 +1,34 @@
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - DataManager initialized
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: amazon
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: dslr
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-31, Domain: webcam
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-31
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: clipart
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,293][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: infograph
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: painting
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: quickdraw
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: real
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: domainnet, Domain: sketch
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset domainnet
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Art
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Clipart
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Product
+[2025-07-18 09:42:32,294][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Adding dataset: office-home, Domain: Real World
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset office-home
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: synthetic
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Adding dataset: visda-2017, Domain: real
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Successfully added dataset visda-2017
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Datasets information loaded successfully
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Getting dataset: office-31, Domain: amazon
+[2025-07-18 09:42:32,295][clip_tuner.data.dataset_manager][INFO] - Dataset found: office-31, Domain: amazon

@@ -1,0 +1,7 @@
+defaults:
+  - datasets_info: default
+  - models_info: default
+  - dataset: default
+  - model: default
+  - image_transforms: default
+  

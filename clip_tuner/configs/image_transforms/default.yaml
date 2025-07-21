@@ -1,0 +1,49 @@
+common:
+  image_size: [224, 224]
+  image_mean: [0.481, 0.458, 0.408]
+  image_std:  [0.269, 0.262, 0.276]
+
+train:
+  _target_: torchvision.transforms.Compose
+  transforms:
+    - _target_: torchvision.transforms.RandomResizedCrop
+      size: ${....common.image_size}
+      scale: [0.1, 1.0]
+      ratio: [0.75, 1.33]
+      interpolation: BICUBIC
+
+    - _target_: torchvision.transforms.RandomHorizontalFlip
+
+    - _target_: torchvision.transforms.ColorJitter
+      brightness: 0.4
+      contrast:   0.4
+      saturation: 0.4
+      hue:        0.2
+
+    - _target_: torchvision.transforms.GaussianBlur
+      kernel_size: 5
+
+    - _target_: torchvision.transforms.RandomGrayscale
+      p: 0.2
+
+    - _target_: torchvision.transforms.ToTensor
+    
+    - _target_: torchvision.transforms.Normalize
+      mean: ${....common.image_mean}
+      std:  ${....common.image_std}
+
+validation:
+  _target_: torchvision.transforms.Compose
+  transforms:
+    - _target_: torchvision.transforms.Resize
+      size: ${....common.image_size}
+      interpolation: BICUBIC
+
+    - _target_: torchvision.transforms.CenterCrop
+      size: ${....common.image_size}
+
+    - _target_: torchvision.transforms.ToTensor
+    
+    - _target_: torchvision.transforms.Normalize
+      mean: ${....common.image_mean}
+      std:  ${....common.image_std}

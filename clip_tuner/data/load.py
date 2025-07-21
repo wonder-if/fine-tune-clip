@@ -99,33 +99,20 @@ def load_hf_dataset_from_dir(
 
 
 def load_dataset(
-    dataset_dir: str = None,
-    data_manager: DatasetManager = None,
+    datasets_root: str = None,
+    datasets_meta=None,
     dataset_name: str = None,
     domain_name: str = None,
-    datasets_config: str = None,
-    dataset_root=None,
-    logger=None,
     cache_root: str = "./.cache",
 ) -> Dataset:
-    if dataset_dir:  # 从指定文件夹加载
-        dataset_name = os.path.basename(os.path.normpath(dataset_dir))
 
-        return load_hf_dataset_from_dir(
-            dataset_dir,
-            cache_path=os.path.join(cache_root, dataset_name),
-        )
+    data_manager = DatasetManager(datasets_root, datasets_meta)
 
-    if datasets_config:  # 从 DatasetManager 加载数据集信息，再通过数据集名加载
-        data_manager = DatasetManager(datasets_config, dataset_root, logger)
-
-    if data_manager:  # 从 DatasetManager 加载数据集信息，再通过数据集名加载数据集
-        assert dataset_name
-        dataset_info = data_manager.get_dataset_info(dataset_name, domain_name)
-        cache_path = os.path.join(cache_root, dataset_name)
-        if domain_name:
-            cache_path = os.path.join(cache_path, domain_name)
-        return load_hf_dataset_from_dir(
-            dataset_info.data_dir,
-            cache_path=cache_path,
-        )
+    dataset_info = data_manager.get_dataset_info(dataset_name, domain_name)
+    cache_path = os.path.join(cache_root, dataset_name)
+    if domain_name:
+        cache_path = os.path.join(cache_path, domain_name)
+    return load_hf_dataset_from_dir(
+        dataset_info.data_dir,
+        cache_path=cache_path,
+    )
