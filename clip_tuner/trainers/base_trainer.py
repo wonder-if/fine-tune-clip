@@ -28,9 +28,21 @@ logger = logging.get_logger(__name__)
 
 
 class BaseTrainer(Trainer):
-    def __init__(self, *args, **kwargs):
+    def __init__(
+        self,
+        zero_shot_dataset,
+        zero_shot_collator,
+        processor,
+        prompts,
+        *args,
+        **kwargs,
+    ):
+        self.zero_shot_dataset = zero_shot_dataset
+        self.zero_shot_collator = zero_shot_collator
+        self.processor = processor
+        self.prompts = prompts
+
         super().__init__(*args, **kwargs)
-        self.loss_fn = loss_fn
 
     def get_zero_shot_dataloader(
         self,
@@ -78,16 +90,15 @@ class BaseTrainer(Trainer):
     def zero_shot_loop(
         self,
         dataloader,
-        class_names,
+        candidates,
         processor,
         compute_per_class_metrics=False,
         metric_key_prefix="zero_shot_eval",
         description="Zero-shot evaluation",
     ) -> EvalLoopOutput:
         model = self._wrap_model(self.model, training=False)
-        candidates = [
-            f"a photo of a {label_name.replace('_', ' ')}" for label_name in class_names
-        ]
+        class_names = dataloader.dataset.features["label"].names
+
         if len(self.accelerator._models) == 0 and model is self.model:
             start_time = time.time()
             model = (
@@ -186,12 +197,14 @@ class BaseTrainer(Trainer):
         self,
         zero_shot_eval_dataset: Optional[Union[Dataset, Dict[str, Dataset]]],
         data_collator,
+        prompt_template: str,
         processor,
         batch_size=None,
         compute_per_class_metrics=False,
         metric_key_prefix: str = "zero_shot_eval",
     ) -> Dict[str, float]:
         # handle multipe eval datasets
+
         override = zero_shot_eval_dataset is not None
         if isinstance(zero_shot_eval_dataset, dict):
             metrics = {}
@@ -219,9 +232,14 @@ class BaseTrainer(Trainer):
         start_time = time.time()
         class_names = zero_shot_eval_dataset.features["label"].names
 
+        candidates = [
+            prompt_template.format(label_name.replace("_", " "))
+            for label_name in class_names
+        ]
+
         output = self.zero_shot_loop(
             dataloader,
-            class_names=class_names,
+            candidates=candidates,
             processor=processor,
             compute_per_class_metrics=compute_per_class_metrics,
             metric_key_prefix=metric_key_prefix,
@@ -247,3 +265,16 @@ class BaseTrainer(Trainer):
         self._memory_tracker.stop_and_update_metrics(output.metrics)
 
         return output.metrics
+
+    def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
+        eval_metrics = super().evaluate(eval_dataset, ignore_keys, metric_key_prefix)
+
+        zero_shot_metrics = self.zero_shot_evaluate(
+            self.zero_shot_dataset,
+            data_collator=self.zero_shot_collator,
+            prompt_template=self.prompts.template,
+            processor=self.processor,
+        )
+
+        eval_metrics.update(zero_shot_metrics)
+        return eval_metrics

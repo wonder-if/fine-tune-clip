@@ -6,12 +6,9 @@ from hydra.utils import instantiate
 from pprint import pprint
 
 from clip_tuner import (
-    load_dataset,
+    build_train_eval_dataset,
+    build_zero_shot_dataset,
     load_model,
-    build_image_transforms,
-    build_sample_prompt_encoder,
-    build_class_prompt_encoder,
-    Base,
 )
 
 
@@ -22,40 +19,39 @@ def main(cfg: DictConfig):
     print("Hydra run dir:", os.getcwd())
     logger = logging.getLogger(__name__)
 
-    # load dataset
-    dataset = instantiate(
-        cfg.datasets_info,
-        **cfg.dataset,
-        _target_=load_dataset,
-    )
-    logger.info(dataset)
-
     # load model
-    clip_model, clip_tokenizer, clip_processor = instantiate(
-        cfg.models_info, **cfg.model, _target_=load_model
-    )
-    logger.info(f"clip_model: {clip_model}")
-    logger.info(f"clip_tokenizer: {clip_tokenizer}")
-    logger.info(f"clip_processor: {clip_processor}")
-
-    # load transforms and prompt encoders to dataset
-    train_transforms, val_transforms = build_image_transforms(
-        cfg.image_transforms, image_processor=clip_processor.image_processor
-    )
-    sample_prompt_encoder = build_sample_prompt_encoder(
-        cfg.sample_prompt_encoder, clip_tokenizer=clip_tokenizer, dataset=dataset
+    model, tokenizer, processor = load_model(
+        **cfg.models_info,
+        **cfg.pretrained_model,
     )
 
-    dataset.set_transforms(train_transforms)
-    dataset.map(
-        function=sample_prompt_encoder,
-        batched=True,
-        desc="Running sample prompt and tokenizer on dataset",
+    # build dataset and data collect_fn
+    train_dataset, eval_dataset, collator = build_train_eval_dataset(
+        cfg.datasets_info,  # 已管理的所有数据集的信息
+        cfg.dataset,  # 选择的数据集
+        cfg.transforms,  # 数据增强
+        cfg.prompts,  # 提示词
+        processor,  # 匹配模型的数据预处理
+        tokenizer,  # tokenize
     )
 
-    #
+    zero_shot_dataset, zero_shot_collator = build_zero_shot_dataset(
+        cfg.datasets_info,
+        cfg.dataset,
+    )
 
-    #
+    trainer = instantiate(
+        cfg.trainer,
+        model=model,
+        data_collator=collator,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
+        zero_shot_dataset=zero_shot_dataset,
+        zero_shot_collator=zero_shot_collator,
+        processor=processor,
+    )
+
+    print("Trainer:", trainer)
 
 
 if __name__ == "__main__":

@@ -48,5 +48,6 @@ coverage.xml
 
 # Output files
 output/
+outputs/
 trainer_output/
 .bin

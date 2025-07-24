@@ -1,0 +1,7 @@
+_target_: clip_tuner.BaseTrainer
+
+args: ${training.args}
+compute_loss_func: ${trainer.compute_loss_func}
+
+prompts:
+  template: "a photo of a {}"

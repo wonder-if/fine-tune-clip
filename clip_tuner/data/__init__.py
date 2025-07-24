@@ -1,3 +1,6 @@
+from .restructure_datasets import add_train_dir
+from .loading import DatasetManager, load_dataset
+
 """
 项目架构————数据模块
 

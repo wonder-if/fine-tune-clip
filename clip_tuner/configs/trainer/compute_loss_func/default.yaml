@@ -1,0 +1,2 @@
+_target_: clip_tuner.SymmetricCLIPLoss
+temperature: 0.07

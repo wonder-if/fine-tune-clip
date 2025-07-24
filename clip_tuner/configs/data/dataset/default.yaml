@@ -1,0 +1,9 @@
+train:
+  dataset_name: office-31
+  domain_name: amazon
+eval:
+  dataset_name: office-31
+  domain_name: webcam
+zero_shot:
+  dataset_name: office-31
+  domain_name: webcam

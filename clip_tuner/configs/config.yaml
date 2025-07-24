@@ -1,7 +1,12 @@
 defaults:
-  - datasets_info: default
-  - models_info: default
-  - dataset: default
-  - model: default
-  - image_transforms: default
-  
+  - data/datasets_info@datasets_info: default
+  - data/dataset@dataset: default
+  - data/transforms@transforms: default
+  - data/prompts@prompts: default
+
+  - model/models_info@models_info: default
+  - model/pretrained_model@pretrained_model: default
+
+  - trainer: default
+  - trainer/args@trainer.args: default
+  - trainer/compute_loss_func@trainer.compute_loss_func: default
