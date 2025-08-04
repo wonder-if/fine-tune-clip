@@ -1,2 +1,1 @@
-from .model_manager import ModelManager
-from .prompts.learnable_prompt import add_learnable_prompts_to_clip_text_model
+from .learnable_prompt import add_learnable_prompts_to_clip_text_model

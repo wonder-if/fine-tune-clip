@@ -4,7 +4,7 @@ output_dir: ${hydra:run.dir}/hf_output   # 自动跟随 Hydra 的 run.dir
 overwrite_output_dir: true
 
 per_device_train_batch_size: 64
-per_device_eval_batch_size: 64
+per_device_eval_batch_size: 256
 learning_rate: 5e-5
 warmup_steps: 0
 weight_decay: 0.1
@@ -14,8 +14,8 @@ do_eval: true
 eval_strategy: "epoch"
 
 remove_unused_columns: false
-num_train_epochs: 2
-dataloader_num_workers: 8
+num_train_epochs: 20
+dataloader_num_workers: 16
 
 save_safetensors: false
 report_to: "none"

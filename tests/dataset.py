@@ -11,6 +11,10 @@ from clip_tuner import (
     load_model,
 )
 
+from clip_tuner.models import add_learnable_prompts_to_clip_text_model
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 
 @hydra.main(
     version_base=None, config_path="pkg://clip_tuner/configs", config_name="config"
@@ -25,6 +29,14 @@ def main(cfg: DictConfig):
         **cfg.pretrained_model,
     )
 
+    # 冻住除可训练嵌入参数外的所有参数
+    for name, param in model.named_parameters():
+        param.requires_grad_(False)
+        if "learnable_embeddings" in name:
+            param.requires_grad = True
+
+    model = add_learnable_prompts_to_clip_text_model(clip_model=model)
+
     # build dataset and data collect_fn
     train_dataset, eval_dataset, collator = build_train_eval_dataset(
         cfg.datasets_info,  # 已管理的所有数据集的信息
@@ -36,8 +48,9 @@ def main(cfg: DictConfig):
     )
 
     zero_shot_dataset, zero_shot_collator = build_zero_shot_dataset(
-        cfg.datasets_info,
-        cfg.dataset,
+        cfg.datasets_info,  # 已管理的所有数据集的信息
+        cfg.dataset,  # 选择的数据集
+        processor,  # 匹配模型的数据预处理
     )
 
     trainer = instantiate(
@@ -48,10 +61,15 @@ def main(cfg: DictConfig):
         eval_dataset=eval_dataset,
         zero_shot_dataset=zero_shot_dataset,
         zero_shot_collator=zero_shot_collator,
-        processor=processor,
+        clip_tokenizer=tokenizer,
     )
 
     print("Trainer:", trainer)
+
+    trainer.evaluate()
+    # trainer.train()
+    # trainer.save_model()  # 保存模型
+    # trainer.save_state()
 
 
 if __name__ == "__main__":
