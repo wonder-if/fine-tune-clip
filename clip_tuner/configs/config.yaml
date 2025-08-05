@@ -1,6 +1,6 @@
 defaults:
   - data/datasets_info@datasets_info: default
-  - data/dataset@dataset: default
+  - data/dataset@dataset: domainnet_clipart
   - data/transforms@transforms: default
   - data/prompts@prompts: default
 

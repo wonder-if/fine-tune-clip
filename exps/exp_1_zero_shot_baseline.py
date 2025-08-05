@@ -1,58 +1,73 @@
-import sys
 import os
+import logging
+import hydra
+from omegaconf import DictConfig
+from hydra.utils import instantiate
 
-# 获取项目根目录的绝对路径
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-sys.path.append(project_root)
+from clip_tuner import (
+    build_train_eval_dataset,
+    build_zero_shot_dataset,
+    load_model,
+)
 
-import pandas as pd
-from transformers import CLIPModel, CLIPProcessor
-from clip_tuner.data import DatasetManager, get_val_transforms, zero_shot_collate_fn
-from clip_tuner.models import ModelManager
-from clip_tuner.trainers import BaseTrainer
-from clip_tuner.utils import Logger, get_logger
+from clip_tuner.models import add_learnable_prompts_to_clip_text_model
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
-def run_zero_shot_baseline(
-    model_name="clip-vit-base-patch32", datasets_cfg="./configs/datasets_info.json"
-):
-    # 初始化模型
-    model_info = ModelManager().get_model(model_name)
-    model = CLIPModel.from_pretrained(model_info.path)
-    processor = CLIPProcessor.from_pretrained(model_info.path)
-    trainer = BaseTrainer(model=model)
+@hydra.main(
+    version_base=None, config_path="pkg://clip_tuner/configs", config_name="config"
+)
+def main(cfg: DictConfig):
 
-    results = []
-    data_manager = DatasetManager(datasets_cfg, logger=None)
-    for info in data_manager.list_datasets():
-        ds = data_manager.load_hf_dataset(info.dataset_name, info.domain_name)["train"]
-        ds.set_transform(
-            get_val_transforms(
-                image_size=(
-                    processor.image_processor.crop_size["height"],
-                    processor.image_processor.crop_size["width"],
-                ),
-                image_mean=processor.image_processor.image_mean,
-                image_std=processor.image_processor.image_std,
-            )
-        )
-        metrics = trainer.zero_shot_evaluate(
-            ds,
-            data_collator=zero_shot_collate_fn,
-            processor=processor,
-        )
-        results.append(
-            {
-                "dataset": info.dataset_name,
-                "domain": info.domain_name,
-                **metrics,
-            }
-        )
+    logger = logging.getLogger(__name__)
 
-    df = pd.DataFrame(results)
-    df.to_csv("zero_shot_results.csv", index=False)
-    print(df)
+    # load model
+    model, tokenizer, processor = load_model(
+        **cfg.models_info,
+        **cfg.pretrained_model,
+    )
+
+    # 冻住除可训练嵌入参数外的所有参数
+    for name, param in model.named_parameters():
+        param.requires_grad_(False)
+        if "learnable_embeddings" in name:
+            param.requires_grad = True
+
+    # model = add_learnable_prompts_to_clip_text_model(clip_model=model)
+
+    # build dataset and data collect_fn
+    # train_dataset, eval_dataset, collator = build_train_eval_dataset(
+    #     cfg.datasets_info,  # 已管理的所有数据集的信息
+    #     cfg.dataset,  # 选择的数据集
+    #     cfg.transforms,  # 数据增强
+    #     cfg.prompts,  # 提示词
+    #     processor,  # 匹配模型的数据预处理
+    #     tokenizer,  # tokenize
+    # )
+
+    zero_shot_dataset, zero_shot_collator = build_zero_shot_dataset(
+        cfg.datasets_info,  # 已管理的所有数据集的信息
+        cfg.dataset,  # 选择的数据集
+        processor,  # 匹配模型的数据预处理
+    )
+
+    trainer = instantiate(
+        cfg.trainer,
+        model=model,
+        # data_collator=collator,
+        train_dataset=zero_shot_dataset,
+        eval_dataset=zero_shot_dataset,
+        zero_shot_dataset=zero_shot_dataset,
+        zero_shot_collator=zero_shot_collator,
+        clip_tokenizer=tokenizer,
+    )
+
+    trainer.evaluate()
+    # trainer.train()
+    # trainer.save_model()  # 保存模型
+    # trainer.save_state()
 
 
 if __name__ == "__main__":
-    run_zero_shot_baseline()
+    main()

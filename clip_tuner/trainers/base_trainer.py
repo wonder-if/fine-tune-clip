@@ -1,4 +1,5 @@
 import time
+import json
 from typing import Dict, Optional, Union
 import math
 from tqdm import tqdm
@@ -23,6 +24,7 @@ from transformers.trainer_pt_utils import (
     EvalLoopContainer,
     nested_detach,
 )
+
 
 from .utils import compute_accuracy, compute_per_class_accuracy
 
@@ -63,7 +65,7 @@ class BaseTrainer(Trainer):
         prompt_with_label = [prompt_template.format(label) for label in class_names]
         text_inputs = clip_tokenizer(
             prompt_with_label,
-            padding="max_length",
+            padding=True,
             truncation=True,
             return_tensors="pt",
         )
@@ -159,6 +161,9 @@ class BaseTrainer(Trainer):
 
         self.log(output.metrics)
         logger.info(output.metrics)
+        print("ZERO_SHOT_METRICS_START")
+        print(json.dumps(output.metrics))  # for bash script to capture
+        print("ZERO_SHOT_METRICS_END")
 
         self.control = self.callback_handler.on_evaluate(
             self.args, self.state, self.control, output.metrics
@@ -179,13 +184,11 @@ class BaseTrainer(Trainer):
         model = self._wrap_model(self.model, training=False)
         class_names = dataloader.dataset.features["label"].names
         if len(self.accelerator._models) == 0 and model is self.model:
-            start_time = time.time()
             model = (
                 self.accelerator.prepare(model)
                 if self.is_deepspeed_enabled or self.is_fsdp_enabled
                 else self.accelerator.prepare_model(model, evaluation_mode=True)
             )
-            self.model_preparation_time = round(time.time() - start_time, 4)
 
             if self.is_fsdp_enabled:
                 self.model = model
@@ -219,21 +222,23 @@ class BaseTrainer(Trainer):
         logger.info(f"\n***** Running {description} *****")
         if has_length(dataloader):
             logger.debug(f"  Num examples = {self.num_examples(dataloader)}")
+            num_samples = len(dataloader.dataset)
         dataloader_iter = tqdm(
             enumerate(dataloader),
             desc="Zero-Shot Inference",
             total=len(dataloader),
         )
+
+        model.eval()
+        with torch.inference_mode(), autocast("cuda"):
+            text_inputs = {k: v.to(model.device) for k, v in text_inputs.items()}
+            text_features = model.get_text_features(**text_inputs).detach()
+
         for step, image_label_inputs in dataloader_iter:
             # Update the observed num examples
             observed_batch_size = find_batch_size(image_label_inputs)
             if observed_batch_size is not None:
                 observed_num_examples += observed_batch_size
-            model.eval()
-            with torch.no_grad(), autocast("cuda"):
-                text_inputs = {k: v.to(model.device) for k, v in text_inputs.items()}
-                text_features = model.get_text_features(**text_inputs).detach()
-
             losses, logits_per_image, labels = self.zero_shot_step(
                 model,
                 image_label_inputs,
@@ -252,10 +257,9 @@ class BaseTrainer(Trainer):
                 all_labels.to_cpu_and_numpy()
                 del losses, logits_per_image, labels, image_label_inputs
                 torch.cuda.empty_cache()
+            # break
 
-        if has_length(dataloader):
-            num_samples = len(dataloader.dataset)
-        else:
+        if not has_length(dataloader):
             num_samples = observed_num_examples
 
         # Gather all remaining tensors and put them back on the CPU
@@ -292,7 +296,7 @@ class BaseTrainer(Trainer):
             # If no text features are provided, we need to tokenize the text inputs
             text_inputs = {k: v.to(model.device) for k, v in text_inputs.items()}
         model.eval()
-        with torch.no_grad(), autocast("cuda"):
+        with torch.inference_mode(), autocast("cuda"):
             # 1. Get image features
             image_features = model.get_image_features(pixel_values=pixel_values)
             image_features = F.normalize(image_features, dim=-1)
@@ -304,10 +308,7 @@ class BaseTrainer(Trainer):
 
             # 3. Compute similarity (dot product)
             logits_per_image = image_features @ text_features.T
-            # logger.info("logits_per_image:", logits_per_image.shape)
-            # logger.info("text_features:", text_features.shape)
 
-            # 4. Compute pseudo loss (optional; usually not used in zero-shot eval)
             loss = None
             if labels is not None:
                 loss_fn = torch.nn.CrossEntropyLoss()

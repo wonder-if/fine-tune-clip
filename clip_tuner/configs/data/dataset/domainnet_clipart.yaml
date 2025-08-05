@@ -1,0 +1,9 @@
+train:
+  dataset_name: domainnet
+  domain_name: clipart
+eval:
+  dataset_name: domainnet
+  domain_name: infograph
+zero_shot:
+  dataset_name: domainnet
+  domain_name: quickdraw

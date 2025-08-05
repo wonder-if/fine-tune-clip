@@ -35,7 +35,7 @@ def main(cfg: DictConfig):
         if "learnable_embeddings" in name:
             param.requires_grad = True
 
-    model = add_learnable_prompts_to_clip_text_model(clip_model=model)
+    # model = add_learnable_prompts_to_clip_text_model(clip_model=model)
 
     # build dataset and data collect_fn
     train_dataset, eval_dataset, collator = build_train_eval_dataset(
