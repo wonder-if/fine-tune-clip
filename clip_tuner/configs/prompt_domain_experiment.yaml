@@ -1,0 +1,60 @@
+defaults:
+  - data/datasets_info@datasets_info: default
+  - model/models_info@models_info: default
+  - model/pretrained_model@pretrained_model: default
+
+seed: 42
+
+domains:
+  - key: A
+    dataset_name: domainnet
+    domain_name: clipart
+    label: "Domain A"
+    max_samples: null
+  - key: B
+    dataset_name: domainnet
+    domain_name: real
+    label: "Domain B"
+    max_samples: null
+
+prompts:
+  templates:
+    - "a photo of a {}"
+    - "a sketch of a {}"
+    - "an artistic drawing of a {}"
+    - "a minimal icon of a {}"
+    - "a realistic studio shot of a {}"
+    - "a {}, high-resolution, detailed"
+
+evaluation:
+  batch_size: 256
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 4
+  compute_topk: [1, 5]
+  chunk_size: 1024
+  max_samples_per_domain: null
+  cache_root: "./.cache"
+  num_proc: 4
+  device: auto
+  dtype: float32
+
+features:
+  metrics:
+    cosine_shift: true
+    euclidean: true
+    covariance_fro: true
+    fid: false
+  fid_eps: 1.0e-6
+  max_samples: null
+
+anova:
+  enabled: true
+  clip_to_min_samples: true
+  epsilon: 1.0e-8
+
+output:
+  save_json: false
+  json_path: ${hydra:run.dir}/prompt_domain_analysis.json
+  pretty_print: true

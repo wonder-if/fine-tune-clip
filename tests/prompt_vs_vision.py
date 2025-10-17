@@ -37,40 +37,8 @@ def main(cfg: DictConfig):
 
     # model = add_learnable_prompts_to_clip_text_model(clip_model=model)
 
-    # build dataset and data collect_fn
-    train_dataset, eval_dataset, collator = build_train_eval_dataset(
-        cfg.datasets_info,  # 已管理的所有数据集的信息
-        cfg.dataset,  # 选择的数据集
-        cfg.transforms,  # 数据增强
-        cfg.prompts,  # 提示词
-        processor,  # 匹配模型的数据预处理
-        tokenizer,  # tokenize
-    )
-
     zero_shot_dataset, zero_shot_collator = build_zero_shot_dataset(
         cfg.datasets_info,  # 已管理的所有数据集的信息
         cfg.dataset,  # 选择的数据集
         processor,  # 匹配模型的数据预处理
     )
-
-    trainer = instantiate(
-        cfg.trainer,
-        model=model,
-        data_collator=collator,
-        train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
-        zero_shot_dataset=zero_shot_dataset,
-        zero_shot_collator=zero_shot_collator,
-        clip_tokenizer=tokenizer,
-    )
-
-    print("Trainer:", trainer)
-
-    trainer.evaluate()
-    # trainer.train()
-    # trainer.save_model()  # 保存模型
-    # trainer.save_state()
-
-
-if __name__ == "__main__":
-    main()

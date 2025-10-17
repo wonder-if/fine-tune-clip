@@ -16,7 +16,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
 @hydra.main(
-    version_base=None, config_path="pkg://clip_tuner/configs", config_name="config"
+    version_base=None, config_path="configs", config_name="config"
 )
 def main(cfg: DictConfig):
 

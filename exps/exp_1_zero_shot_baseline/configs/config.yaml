@@ -1,0 +1,18 @@
+hydra:
+  searchpath:
+    - pkg://clip_tuner/configs
+  run:
+    dir: ${oc.env:PWD}/exps/exp_1_zero_shot_baseline/outputs/${now:%Y-%m-%d_%H-%M-%S}
+
+defaults:
+  - data/datasets_info@datasets_info: default
+  - data/dataset@dataset: domainnet_clipart
+  - data/transforms@transforms: default
+  - data/prompts@prompts: default
+
+  - model/models_info@models_info: default
+  - model/pretrained_model@pretrained_model: default
+
+  - trainer: default
+  - trainer/args@trainer.args: default
+  - trainer/compute_loss_func@trainer.compute_loss_func: default

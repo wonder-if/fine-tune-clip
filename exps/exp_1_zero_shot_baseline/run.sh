@@ -4,7 +4,7 @@ source ~/anaconda3/etc/profile.d/conda.sh
 conda activate pytorch-nightly
 # 设置默认的 python 执行路径（可选）以及实验主程序路径
 PYTHON_BIN=/home/wyh/anaconda3/envs/pytorch-nightly/bin/python
-EXPERIMENT=/mnt/local-data/workspace/codes/fine-tune-clip/exps/exp_1_zero_shot_baseline.py
+EXPERIMENT=./exps/exp_1_zero_shot_baseline/main.py
 
 DATASET="dataset.zero_shot.dataset_name"
 DOMAIN="dataset.zero_shot.domain_name"
@@ -27,3 +27,9 @@ do
         echo "❌ Failed to parse output for $DOMAIN_NAME"
     fi
 done
+
+# 计算并写入平均值
+if [ -s "$OUTPUT_FILE" ]; then
+    AVG=$(awk -F, 'NR>1 && $3 != "" {sum+=$3; n++} END{if(n) printf("%.6f", sum/n)}' "$OUTPUT_FILE")
+    echo "domainnet,average,$AVG" >> "$OUTPUT_FILE"
+fi

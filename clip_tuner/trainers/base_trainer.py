@@ -61,7 +61,7 @@ class BaseTrainer(Trainer):
         prompt_template = (
             prompt_template if (prompt_template is not None) else self.prompt_template
         )
-        class_names = dataset.features["label"].names
+        class_names = self._resolve_class_names(dataset)
         prompt_with_label = [prompt_template.format(label) for label in class_names]
         text_inputs = clip_tokenizer(
             prompt_with_label,
@@ -182,7 +182,7 @@ class BaseTrainer(Trainer):
         description="Zero-shot evaluation",
     ) -> EvalLoopOutput:
         model = self._wrap_model(self.model, training=False)
-        class_names = dataloader.dataset.features["label"].names
+        class_names = self._resolve_class_names(dataloader.dataset)
         if len(self.accelerator._models) == 0 and model is self.model:
             model = (
                 self.accelerator.prepare(model)
@@ -290,30 +290,49 @@ class BaseTrainer(Trainer):
         self, model, image_label_inputs, text_inputs=None, text_features=None
     ):
 
-        labels = image_label_inputs["labels"]
-        pixel_values = image_label_inputs["pixel_values"].to(model.device)
-        if text_features is None:
-            # If no text features are provided, we need to tokenize the text inputs
-            text_inputs = {k: v.to(model.device) for k, v in text_inputs.items()}
+        labels = image_label_inputs.get("labels")
         model.eval()
+
         with torch.inference_mode(), autocast("cuda"):
-            # 1. Get image features
-            image_features = model.get_image_features(pixel_values=pixel_values)
-            image_features = F.normalize(image_features, dim=-1)
+            if "features" in image_label_inputs:
+                image_features = image_label_inputs["features"].to(model.device)
+            else:
+                pixel_values = image_label_inputs["pixel_values"].to(model.device)
+                image_features = model.get_image_features(pixel_values=pixel_values)
+                image_features = F.normalize(image_features, dim=-1)
 
-            # 2. Get text features if not provided
             if text_features is None:
+                text_inputs = {k: v.to(model.device) for k, v in text_inputs.items()}
                 text_features = model.get_text_features(**text_inputs)
-                text_features = F.normalize(text_features, dim=-1)
+            text_features = F.normalize(text_features, dim=-1)
 
-            # 3. Compute similarity (dot product)
             logits_per_image = image_features @ text_features.T
 
             loss = None
             if labels is not None:
                 loss_fn = torch.nn.CrossEntropyLoss()
-                loss = loss_fn(logits_per_image, labels).detach()
+                loss = loss_fn(logits_per_image, labels.to(model.device)).detach()
         return (loss, logits_per_image, labels)
+
+    def _resolve_class_names(self, dataset):
+        if hasattr(dataset, "features"):
+            try:
+                label_feature = dataset.features["label"]
+                names = getattr(label_feature, "names", None)
+                if names:
+                    return list(names)
+            except Exception:
+                pass
+
+        if hasattr(dataset, "class_names") and dataset.class_names is not None:
+            return list(dataset.class_names)
+
+        if hasattr(dataset, "metadata"):
+            class_names = dataset.metadata.get("class_names")
+            if class_names:
+                return list(class_names)
+
+        raise ValueError("Unable to infer class names from dataset for text prompts.")
 
     def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
         # eval_metrics = super().evaluate(eval_dataset, ignore_keys, metric_key_prefix)
